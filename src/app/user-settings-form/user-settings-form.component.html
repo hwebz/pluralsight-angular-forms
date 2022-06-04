@@ -14,6 +14,28 @@
       <div [hidden]="!form.submitted || propertyTest.valid" class="alert alert-danger">Please enter valid name</div>
     </div>
 
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <!-- <input type="text" placeholder="Start Date" class="form-control" [(ngModel)]="startDate" name="startDate" id="startDate" bsDatePicker> -->
+      <input type="text" placeholder="Start Date" class="form-control" [(ngModel)]="startDate" name="startDate" id="startDate" bsDaterangePicker>
+    </div>
+
+    <p>Start Date: {{ startDate }}</p>
+
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime" id="startTime"></timepicker>
+    </div>
+
+    <div class="form-group">
+      <label for="userRating">User Rating</label>
+      <rating [(ngModel)]="userRating" name="userRating" id="userRating" [max]="maxRating" [readonly]="isReadonly" [titles]="['one', 'two', 'three']"></rating>
+    </div>
+
+    <p>User Rating: {{ userRating }}</p>
+
+    <button type="button" class="btn btn-primary" [(ngModel)]="singleModel" name="singleModel" btnCheckbox btnCheckboxTrue="On" btnCheckboxFalse="Off">Single Toggle</button>
+
     <div class="form-check mb-3">
       <input class="form-check-input" type="checkbox" name="emailOffers" id="emailOffers" [(ngModel)]="userSettings.emailOffers">
       <label for="emailOffers">
@@ -40,6 +62,14 @@
         <label for="darkInterface">
           Dark
         </label>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <div class="btn-group">
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" btnRadio="Light" name="interfaceStyle">Light</label>
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" btnRadio="Medium" name="interfaceStyle">Medium</label>
+        <label class="btn btn-primary" [(ngModel)]="userSettings.interfaceStyle" btnRadio="Dark" name="interfaceStyle">Dark</label>
       </div>
     </div>
 
